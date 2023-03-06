@@ -1,0 +1,45 @@
+.popup-form {
+  height: 300px;
+  padding: 100px 10%;
+
+  background-color: rgb(10, 125, 232);
+  display: flex;
+  z-index: 5;
+  border-radius: 15px;
+  top: 100vh;
+  scale: 0;
+}
+
+.popup-form button {
+  background-color: rgb(17, 18, 16);
+}
+
+.show-popup-form {
+  scale: 1;
+  top: 0;
+
+  display: flex;
+  transition: 0.3s linear;
+}
+
+.hide-popup-form {
+  scale: 0;
+}
+
+.popup-form span {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.popup-form span:hover {
+  color: orange;
+}
+
+.popup-form span:active {
+  scale: 0.9;
+}

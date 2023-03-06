@@ -1,0 +1,33 @@
+/* nav {
+  border: 2px solid red !important;
+  padding: 10px 10%;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.head1 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 70%;
+  margin: 20px 10%;
+  margin-left: auto;
+  margin-right: auto;
+
+
+
+  border:1px solid white !important;
+  border-radius: 10px;
+  color:white;
+}
+
+.head1 ul li{
+  display:inline-block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color:white;
+
+
+}
