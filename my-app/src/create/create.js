@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./create.css";
 
-
 const Create = () => {
-
+  const navigate = useNavigate();
   const [showCreate, setshowCreate] = useState(false);
   const [title, settitle] = useState("");
   const [price, setprice] = useState(0);
   const dothat = () => {
     settitle("");
     setprice(0);
+  };
 
-  }
-
-  const [mydata, showmydata] = useState([])
-
-  useEffect(() => {
-
-    fetch("http://localhost:3100/mydata")
-      .then((response) => response.json())
-      .then((data) => showmydata(data))
-  }, []);
   return (
     <div className="createParent">
       <header className="navheader">
@@ -38,16 +29,17 @@ const Create = () => {
         <div className="components-aside">
           <ul>
             <li>
-              <a> Home </a>
+              <a href="/Homeresult"> Home </a>
             </li>
 
             <li>
-              <a onClick={() => {
-
-                setshowCreate(true)
-
-
-              }}>Create</a>
+              <a
+                onClick={() => {
+                  setshowCreate(true);
+                }}
+              >
+                Create
+              </a>
             </li>
             <li>
               <a>Profile</a>
@@ -62,74 +54,47 @@ const Create = () => {
         </div>
       </aside>
 
+      {showCreate && (
+        <main className="mainCon">
+          <input
+            onChange={(eo) => {
+              settitle(eo.target.value);
+            }}
+            type="text"
+            value={title}
+            placeholder="Amount"
+          />
 
+          <input
+            onChange={(eo) => {
+              setprice(Number(eo.target.value));
+            }}
+            type="number"
+            placeholder="$"
+            value={price}
+          />
 
-      {showCreate && <main className="mainCon">
-        <input onChange={(eo) => {
-          settitle(eo.target.value)
+          <button
+            onClick={(eo) => {
+              eo.preventDefault();
+              fetch("http://localhost:3100/mydata", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ title, price }),
+              }).then(() => {
+                navigate("/");
+              });
 
-
-
-        }} type="text" value={title} placeholder="Amount" />
-
-
-
-        <input onChange={(eo) => {
-
-          setprice(Number(eo.target.value))
-
-        }} type="text" placeholder="$" value={price} />
-
-
-
-        <button onClick={(eo) => {
-          eo.preventDefault()
-          fetch("http://localhost:3100/mydata", {
-
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ title, price })
-
-
-
-
-
-
-
-
-
-          })
-
-
-
-
-
-
-          dothat()
-
-
-
-         }}>submit</button>
-
-
-
-
-
-
+              dothat();
+            }}
+          >
+            submit
+          </button>
         </main>
-    
-        }
-
-{mydata.map((item) => {
-
-  return(<div>{item.title} </div>)
-  
-})}
-
-      
-      </div >
+      )}
+    </div>
   );
 };
 

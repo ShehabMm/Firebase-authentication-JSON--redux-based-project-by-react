@@ -11,6 +11,7 @@ import PopupForm from "./components/Popup form";
 import Error404 from "./pages/error404";
 import Newex from "./pages/Newex";
 import Create from "./create/create";
+import Homeresult from "./create/Homeresult";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,13 @@ const router = createBrowserRouter([
   {
     path: "/Create",
     element: <Create />,
+    // errorElement: <Error404 />,
+  },
+
+
+  {
+    path: "/Homeresult",
+    element: <Homeresult />,
     // errorElement: <Error404 />,
   }
 
