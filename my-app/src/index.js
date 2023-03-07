@@ -10,6 +10,7 @@ import Loading from "./components/loading";
 import PopupForm from "./components/Popup form";
 import Error404 from "./pages/error404";
 import Newex from "./pages/Newex";
+import Create from "./create/create";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,9 +48,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/Newex",
-    element: <Newex />,
+    element: <Newex cls={""} children={""} />,
     // errorElement: <Error404 />,
   },
+
+
+  {
+    path: "/Create",
+    element: <Create />,
+    // errorElement: <Error404 />,
+  }
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

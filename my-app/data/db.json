@@ -1,0 +1,24 @@
+{
+  "mydata": [
+    {
+      "title": "dd",
+      "price": 85,
+      "id": 1
+    },
+    {
+      "title": "s",
+      "price": 5,
+      "id": 2
+    },
+    {
+      "title": "شهبور ",
+      "price": 20,
+      "id": 3
+    },
+    {
+      "title": "علوة حبوب ",
+      "price": 0,
+      "id": 4
+    }
+  ]
+}
