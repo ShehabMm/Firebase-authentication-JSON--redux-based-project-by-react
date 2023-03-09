@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./create.css";
+import emailjs from '@emailjs/browser';
+
 
 const Create = () => {
   const navigate = useNavigate();
@@ -10,6 +12,32 @@ const Create = () => {
   const dothat = () => {
     settitle("");
     setprice(0);
+  };
+
+  const [username, setusername] = useState("");
+  const [useremail, setuseremail] = useState("");
+  const [message, setmessage] = useState("");
+
+
+
+
+
+  let sendEmail = (e) => {
+    e.preventDefault();
+    const forminfo = {
+      from_name: username,
+      user_name: username,
+      user_email: useremail,
+      message: message
+    }
+
+
+    emailjs.send('service_um2xtn9', 'template_b2vjsa5', forminfo, '7LBu4kSgGpdIHFdd7')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   };
 
   return (
@@ -33,30 +61,28 @@ const Create = () => {
             </li>
 
             <li>
-              <a
-                onClick={() => {
-                  setshowCreate(true);
-                }}
+              <a href="" onClick={() => {
+                setshowCreate(true);
+              }}
               >
                 Create
               </a>
             </li>
             <li>
-              <a>Profile</a>
+              <a href="">Profile</a>
             </li>
             <li>
-              <a>Settings</a>
+              <a href="">Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a href="">Logout</a>
             </li>
           </ul>
         </div>
       </aside>
 
-      {showCreate && (
         <main className="mainCon">
-          <input
+          {/* <input
             onChange={(eo) => {
               settitle(eo.target.value);
             }}
@@ -84,16 +110,55 @@ const Create = () => {
                 },
                 body: JSON.stringify({ title, price }),
               }).then(() => {
-                navigate("/");
+                navigate("/Homeresult");
               });
 
               dothat();
             }}
           >
             submit
-          </button>
+          </button> */}
+ */}
+
+
+          <form  >
+
+            <h1>Contact Me</h1>
+            <input className="goooo" onChange={(eo) => {
+
+              setusername(eo.target.value)
+
+
+
+
+            }} type="text" placeholder="your fullname" required />
+            <label htmlFor="email">Your E-mail</label>
+
+            <input className="goooo"  onChange={(eo) => {
+
+              setuseremail(eo.target.value)
+
+            }} type="text" placeholder="your email" required />
+
+
+            <input className="goooo" onChange={(eo) => {
+
+              setmessage(eo.target.value)
+
+            }} type="text" placeholder="write your message here..." required />
+
+
+            <button onClick={(e) => {
+              
+              sendEmail(e)
+
+            }}>send a message</button>
+
+          </form>
+
+
         </main>
-      )}
+    
     </div>
   );
 };

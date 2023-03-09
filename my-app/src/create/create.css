@@ -130,3 +130,29 @@ display:flex;
 justify-content: center;
 
 }
+
+.goooo::placeholder{
+
+
+color:red;
+
+
+}
+.goooo{
+
+accent-color:red !important;
+background-color: beige !important;
+}
+
+.goooo, select, textarea{
+  color: #ff0000;
+}
+
+textarea:focus, .gooooput:focus {
+  color: #ff0000;
+}
+
+
+
+
+

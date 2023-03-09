@@ -1,24 +1,14 @@
 {
   "mydata": [
     {
-      "title": "شهاب البرنس المتعا",
-      "price": 8000,
+      "title": "اشرف",
+      "price": 25,
       "id": 1
     },
     {
-      "title": "شهاب ممدوح ",
-      "price": 500,
+      "title": "fdf",
+      "price": 656,
       "id": 2
-    },
-    {
-      "title": "hgh",
-      "price": 895,
-      "id": 3
-    },
-    {
-      "title": "ffgg",
-      "price": 33343,
-      "id": 4
     }
   ]
 }

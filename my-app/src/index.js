@@ -12,6 +12,7 @@ import Error404 from "./pages/error404";
 import Newex from "./pages/Newex";
 import Create from "./create/create";
 import Homeresult from "./create/Homeresult";
+import Emailjs from "./Emailjs/Emailjs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,8 +66,14 @@ const router = createBrowserRouter([
     path: "/Homeresult",
     element: <Homeresult />,
     // errorElement: <Error404 />,
-  }
+  },
 
+
+  {
+    path: "/Emailjs",
+    element: <Emailjs />,
+    // errorElement: <Error404 />,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

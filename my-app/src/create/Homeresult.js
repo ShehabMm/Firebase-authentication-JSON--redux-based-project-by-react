@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import "./create.css";
-// import Create from "./create"
 
-// const navigate = useNavigate();
 const Homeresult = () => {
 
   const [mydata, showmydata] = useState([])
@@ -25,9 +22,7 @@ const Homeresult = () => {
 
       })}
 
-      {/* if (mydata===([])) {
-        navigate("/")
-      } */}
+
 
     </div>
 
