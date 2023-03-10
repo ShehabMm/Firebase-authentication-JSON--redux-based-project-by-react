@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import Homepage from "./pages/Homepage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter,  RouterProvider } from "react-router-dom";
 import Signup from "./pages/Sign-up";
 import TheContent from "./pages/the content";
 import Loading from "./components/loading";
@@ -13,6 +13,9 @@ import Newex from "./pages/Newex";
 import Create from "./create/create";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
+import Form from "./create/form";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -73,7 +76,14 @@ const router = createBrowserRouter([
     path: "/Emailjs",
     element: <Emailjs />,
     // errorElement: <Error404 />,
+  },
+  {
+    path: "/Form",
+    element: <Form />,
+    // errorElement: <Error404 />,
   }
+
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
