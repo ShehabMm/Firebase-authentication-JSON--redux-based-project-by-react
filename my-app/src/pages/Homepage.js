@@ -27,7 +27,7 @@ const Homepage = () => {
     <div className="the-big">
       <Header />
 
-      <form>
+      <form className="homeform">
         <Typed
           Typed
           strings={[

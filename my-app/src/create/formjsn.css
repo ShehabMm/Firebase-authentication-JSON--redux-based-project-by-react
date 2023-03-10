@@ -1,0 +1,65 @@
+/* //contact form  */
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@100;300;400;500&display=swap");
+
+
+.modern-formjss {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #3551b5), url(../pages/pic/luca-micheli-ruWkmt3nU58-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif !important;
+font-weight: 200;
+}
+
+.modern-formjs .form-simple {
+  max-width: 600px;
+
+width: 100%;
+}
+.input-group{
+
+margin-bottom: 30px;
+position:relative;
+
+}
+
+.modern-formjss input, textarea{
+
+width: 100%;
+padding: 10px;
+color:#fff;
+outline:0;
+background: transparent;
+font-size: 15px;
+border:1px solid #fff; 
+}
+
+.modern-formjss label{
+
+
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+  padding:10px;
+  color:#fff;
+  cursor:text;
+
+}
+
+.modern-formjss button{
+
+background: transparent;
+border:1px solid #fff;
+outline:none;
+
+
+
+
+}

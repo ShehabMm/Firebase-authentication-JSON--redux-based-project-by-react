@@ -152,27 +152,5 @@ textarea:focus, .gooooput:focus {
   color: #ff0000;
 }
 
-/* //contact form  */
-.modern-formjs{
-width: 100%;
-height: 100vh;
-background-image:linear-gradient(rgba(0,0,0,0.7),#3551b5),url(../pages/pic/luca-micheli-ruWkmt3nU58-unsplash.jpg);
-background-position: center;
-background-size: cover;
-box-sizing: border-box;
-position:fixed;
-top:0;
-display:flex !;
-align-items:center;
-justify-content:center;
-
-}
-
-.form-simple{
-
-max-width: 600px;
-
-
-}
 
 

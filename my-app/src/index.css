@@ -22,7 +22,7 @@ code {
     monospace;
 }
 
-form {
+.the-big form {
 
   display: flex;
   flex-direction: column;
