@@ -10,10 +10,6 @@ import { useForm } from "react-hook-form";
 
 const Contactform = () => {
 
-const [user_name, setname] = useState("");
-// const [phone, setphone] = useState();
-// const [inemial, setinemial] = useState("");
-// const [messagein, setmessagein] = useState("");
 
 
 
@@ -44,7 +40,6 @@ const [user_name, setname] = useState("");
           setsendForm(true);
           setTimeout(() => {
             setsendForm(false);
-            setname("")
 
           }, 4000);
         
