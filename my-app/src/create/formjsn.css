@@ -58,6 +58,13 @@ textarea {
   width: 97%;
 }
 
+.modern-formjss textarea{
+
+font-size: 20px;
+padding-top: 40px;
+color:white;
+}
+
 .modern-formjss input::placeholder {
   padding: 500px;
 }
@@ -106,6 +113,12 @@ font-size: 0.5rem;
   }
 
 
+
+}
+
+.modern-formjss{
+
+font-size: 0.3rem;
 
 }
 

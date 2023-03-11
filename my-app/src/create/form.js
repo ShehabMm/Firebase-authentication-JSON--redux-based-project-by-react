@@ -3,25 +3,34 @@ import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { TbMessageCircle, TbSend } from "react-icons/tb";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsTelephone } from "react-icons/bs";
-import { useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
+
+
 const Contactform = () => {
+
+const [user_name, setname] = useState("");
+// const [phone, setphone] = useState();
+// const [inemial, setinemial] = useState("");
+// const [messagein, setmessagein] = useState("");
+
+
+
+
+
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const onSubmit = (data) => console.log(data);
 
   const form = useRef();
 
   const sendEmail = (e) => {
-
     console.log("done");
-    // e.preventDefault();
-
     emailjs
       .sendForm(
         "service_um2xtn9",
@@ -32,19 +41,27 @@ const Contactform = () => {
       .then(
         (result) => {
           console.log(result.text);
-          setsendForm(true)
+          setsendForm(true);
+          setTimeout(() => {
+            setsendForm(false);
+            setname("")
+
+          }, 4000);
+        
+        
         },
         (error) => {
           console.log(error.text);
         }
       );
-  }
-const [sendForm, setsendForm] = useState(false);
+  };
+  const [sendForm, setsendForm] = useState(false);
+
   return (
     <div className="modern-formjss">
       <form
         ref={form}
-        onSubmit={handleSubmit(onSubmit, sendEmail)}
+        onSubmit={handleSubmit(sendEmail,onSubmit)}
         className="form-simple"
       >
         <div className="row-input">
@@ -60,16 +77,18 @@ const [sendForm, setsendForm] = useState(false);
               type="text"
               name="user_name"
               required
+onChange={(eo) => {
+}}
+
             />
-            
+
             <label htmlFor="name">
               <AiOutlineUser /> Your Name
             </label>
-           
-  
           </div>
           <div className="input-group">
-            <input type="text" name="phone_number" required />
+            <input type="text" name="phone_number" required onChange={(eo) => {
+            }}/>
             <label htmlFor="number">
               <BsTelephone style={{ marginRight: "6px" }} />
               Phone Number
@@ -105,34 +124,38 @@ const [sendForm, setsendForm] = useState(false);
           <TbSend /> Send a message
         </button>
 
-      
-          
-        {errors.user_name?.type === "required" && (<p className="popupp" style={{ marginTop: "20px" }} role="alert"><>{errors.user_name?.message}</></p> )}  
+        {errors.user_name?.type === "required" && (
+          <p className="popupp" style={{ marginTop: "20px" }} role="alert">
+            <>{errors.user_name?.message}</>
+          </p>
+        )}
 
-          
-      
-              {errors.user_name?.type === "minLength" && (
-                <p className="popupp" style={{ marginTop: "20px" }} role="alert"><>
-                  {errors.user_name?.message}</>
-                </p>
-              )}
-    
+        {errors.user_name?.type === "minLength" && (
+          <p className="popupp" style={{ marginTop: "20px" }} role="alert">
+            <>{errors.user_name?.message}</>
+          </p>
+        )}
 
-            {errors.user_email?.type === "required" && (
-              <p className="popupp" style={{ marginTop: "20px" }} role="alert"><>
-                {errors.user_email?.message}</>
-              </p>
-            )}
-            {errors.user_email?.type === "minLength" && (
-              <p className="popupp" style={{ marginTop: "20px" }} role="alert"><>
-                {errors.user_email?.message}</>
-              </p>
-            )}
-            <br />
+        {errors.user_email?.type === "required" && (
+          <p className="popupp" style={{ marginTop: "20px" }} role="alert">
+            <>{errors.user_email?.message}</>
+          </p>
+        )}
+        {errors.user_email?.type === "minLength" && (
+          <p className="popupp" style={{ marginTop: "20px" }} role="alert">
+            <>{errors.user_email?.message}</>
+          </p>
+        )}
+        <br />
 
-             { sendForm && <p className="popupp">your message has been sent successfully <AiOutlineHeart style={{ marginTop: "4px", top:"3px", position:"relative" }}/></p>}
-    
-             
+        {sendForm && (
+          <p className="popupp">
+            your message has been sent successfully{" "}
+            <AiOutlineHeart
+              style={{ marginTop: "4px", top: "3px", position: "relative" }}
+            />
+          </p>
+        )}
       </form>
     </div>
   );
