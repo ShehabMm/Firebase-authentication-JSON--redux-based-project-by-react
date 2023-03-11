@@ -13,7 +13,7 @@ import Newex from "./pages/Newex";
 import Create from "./create/create";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
-import Form from "./create/form";
+import Contactform from "./create/form";
 
 
 const router = createBrowserRouter([
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Form",
-    element: <Form />,
+    element: <Contactform />,
     // errorElement: <Error404 />,
   }
 

@@ -1,11 +1,11 @@
 /* //contact form  */
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@100;300;400;500&display=swap");
 
-
 .modern-formjss {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #3551b5), url(../pages/pic/luca-micheli-ruWkmt3nU58-unsplash.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #3551b5),
+    url(../pages/pic/luca-micheli-ruWkmt3nU58-unsplash.jpg);
   background-position: center;
   background-size: cover;
   box-sizing: border-box;
@@ -13,53 +13,109 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Poppins', sans-serif !important;
-font-weight: 200;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 200;
 }
 
-.modern-formjs .form-simple {
+.modern-formjss .form-simple {
+  width: 100%;
   max-width: 600px;
-
-width: 100%;
 }
-.input-group{
-
-margin-bottom: 30px;
-position:relative;
-
+.input-group {
+  margin-bottom: 30px;
+  position: relative;
+  margin-right: 20px;
 }
 
-.modern-formjss input, textarea{
-
-width: 100%;
-padding: 10px;
-color:#fff;
-outline:0;
-background: transparent;
-font-size: 15px;
-border:1px solid #fff; 
+.modern-formjss input,
+textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 10px;
+  color: #fff;
+  outline: 0;
+  background: transparent;
+  font-size: 15px;
+  border: 1px solid #fff;
 }
 
-.modern-formjss label{
-
-
-  height: 100%;
+.modern-formjss label {
   position: absolute;
-  left:0;
-  top:0;
-  padding:10px;
-  color:#fff;
-  cursor:text;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  color: #fff;
+  cursor: text;
+  transition: 0.2s ease-in-out;
+  font-size: 1rem;
+  z-index: -50;
+}
+
+.modern-formjss button {
+  background: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  width: 97%;
+}
+
+.modern-formjss input::placeholder {
+  padding: 500px;
+}
+
+.modern-formjss input:focus ~ label,
+input:valid ~ label {
+  top: -35px;
+  font-size: 14px;
+}
+.modern-formjss textarea:focus ~ label {
+  top: -35px;
+  font-size: 14px;
+}
+
+.modern-formjss .row-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row-input .input-group {
+  flex-basis: 48%;
+}
+
+
+/* @media (max-width:1300px){
+
+  .modern-formjss label{
+
+font-size: 0.7rem;
+
+
+  }
+
+
+
+}
+ */
+@media (max-width:660px){
+
+  .modern-formjss label{
+
+font-size: 0.5rem;
+
+
+  }
+
+
 
 }
 
-.modern-formjss button{
+.modern-formjss .popupp{
 
-background: transparent;
-border:1px solid #fff;
-outline:none;
-
-
-
+border: 2px silid white;
+width: fit-content;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
 
 }
