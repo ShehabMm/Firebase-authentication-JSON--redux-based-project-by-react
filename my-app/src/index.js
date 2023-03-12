@@ -5,7 +5,6 @@ import App from "./App";
 import Homepage from "./pages/Homepage";
 import { createBrowserRouter,  RouterProvider } from "react-router-dom";
 import Signup from "./pages/Sign-up";
-import TheContent from "./pages/the content";
 import Loading from "./components/loading";
 import PopupForm from "./components/Popup form";
 import Error404 from "./pages/error404";
@@ -35,11 +34,7 @@ const router = createBrowserRouter([
     errorElement: <Error404 />,
   },
 
-  {
-    path: "/TheContent",
-    element: <TheContent />,
-    errorElement: <Error404 />,
-  },
+
   {
     path: "/Loading",
     element: <Loading />,

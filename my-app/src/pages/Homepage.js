@@ -29,21 +29,21 @@ const Homepage = () => {
 
       <form className="homeform">
         
-        <Typed
-          Typed
-          strings={[
-            "I am a front-end-dev",
-            "welcome to my website",
-            "see u",
-            "",
-          ]}
-          typeSpeed={60}
-          backSpeed={30}
-          attr="placeholder"
-          loop={false}
-        >
-          <input className="typed" type="text" />
-        </Typed>
+          <Typed
+            Typed
+            strings={[
+              "I am a front-end-dev",
+              "welcome to my website",
+              "see u",
+              "",
+            ]}
+            typeSpeed={60}
+            backSpeed={30}
+            attr="placeholder"
+            loop={false} 
+          >
+            <input className="typed" type="text" />
+          </Typed>
       
         <p style={{ fontSize: "20px", fontWeight: "300" }}>
           Welcome to our platform <span> &#10084; </span>
