@@ -74,7 +74,9 @@ const Homepage = () => {
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
                 // Signed in
-                navigate("/TheContent");
+              
+                window.location.href = "https://courageous-froyo-50292c.netlify.app/";
+              
                 console.log("done");
                 // const user = userCredential.user;
                 // ...

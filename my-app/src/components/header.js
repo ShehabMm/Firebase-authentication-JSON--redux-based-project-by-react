@@ -13,6 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import "./header.css"
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/config";
+
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -57,6 +61,7 @@ function ResponsiveAppBar() {
             }}
           >
             LOGO
+
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -129,7 +134,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1676312336/shehab/albert-dera-ILip77SbmOE-unsplash_bodom0.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -150,7 +155,19 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" onClick={(eo) => {
+                    eo.preventDefault()
+
+                    signOut(auth).then(() => {
+                      console.log("Sign-out successful");
+
+                    }).catch((error) => {
+                      // An error happened.
+                    });
+
+
+                    console.log("hello");
+                  }} >{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>
