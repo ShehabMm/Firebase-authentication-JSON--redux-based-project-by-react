@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase/config";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -15,7 +15,7 @@ import Typed from "react-typed";
 const Homepage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  // const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const [hasErorr, setError] = useState(false);
   const [firebaseError, setfirebasrError] = useState("");
@@ -28,6 +28,7 @@ const Homepage = () => {
       <Header />
 
       <form className="homeform">
+        
         <Typed
           Typed
           strings={[
@@ -43,7 +44,7 @@ const Homepage = () => {
         >
           <input className="typed" type="text" />
         </Typed>
-
+      
         <p style={{ fontSize: "20px", fontWeight: "300" }}>
           Welcome to our platform <span> &#10084; </span>
         </p>
@@ -75,12 +76,12 @@ const Homepage = () => {
                 // Signed in
                 navigate("/TheContent");
                 console.log("done");
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 // ...
               })
               .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
+                // const errorMessage = error.message;
 
                 setError(true);
                 setfirebasrError(errorCode);
@@ -148,8 +149,8 @@ const Homepage = () => {
                     // ..
                   })
                   .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
+                    // const errorCode = error.code;
+                    // const errorMessage = error.message;
                     // ..
                   });
               }}

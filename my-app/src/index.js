@@ -10,7 +10,7 @@ import Loading from "./components/loading";
 import PopupForm from "./components/Popup form";
 import Error404 from "./pages/error404";
 import Newex from "./pages/Newex";
-import Create from "./create/create";
+// import Create from "./create/create";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
@@ -58,11 +58,11 @@ const router = createBrowserRouter([
   },
 
 
-  {
-    path: "/Create",
-    element: <Create />,
-    // errorElement: <Error404 />,
-  },
+  // {
+  //   path: "/Create",
+  //   element: <Create />,
+  //   // errorElement: <Error404 />,
+  // },
 
 
   {
