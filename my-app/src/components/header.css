@@ -1,17 +1,20 @@
-.app-bar{
+.app-bar {
+  /* From https://css.glass */
+  background: rgb(43, 35, 35) !important;
+  box-shadow: 0 4px 30px rgba(211, 174, 174, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-background-color: #212121 !important;
-width: 70% !important;
-margin-left: auto;
-margin-right: auto;
-border-radius: 5px;
-/* From https://css.glass */
-background: rgba(26, 25, 25, 0.025) !important;
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+.typography{
+
+  text-transform: lowercase !important;  
+
+}
+
+.css-1uzrjc8-MuiSvgIcon-root{
+display:none !important;
 
 
 }

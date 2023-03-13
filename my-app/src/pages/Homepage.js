@@ -7,7 +7,6 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 import Typed from "react-typed";
@@ -16,7 +15,6 @@ const Homepage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   // const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
   const [hasErorr, setError] = useState(false);
   const [firebaseError, setfirebasrError] = useState("");
   const [showForm, setshowForm] = useState("");
@@ -167,7 +165,7 @@ const Homepage = () => {
           </form>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </form>
     </div>
   );

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import Homepage from "./pages/Homepage";
-import { createBrowserRouter,  RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./pages/Sign-up";
 import Loading from "./components/loading";
 import PopupForm from "./components/Popup form";
@@ -13,6 +13,8 @@ import Newex from "./pages/Newex";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 
 const router = createBrowserRouter([
@@ -81,9 +83,24 @@ const router = createBrowserRouter([
 
 ]);
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+
+
+<React.StrictMode>
+  <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </ThemeProvider>
+
+
+</React.StrictMode>
 );
