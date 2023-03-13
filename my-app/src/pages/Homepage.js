@@ -10,6 +10,7 @@ import { useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 import Typed from "react-typed";
+import { Container } from "@mui/material";
 
 const Homepage = () => {
   const [email, setemail] = useState("");
@@ -22,27 +23,30 @@ const Homepage = () => {
   const [resetEmail, setresetEmail] = useState("");
 
   return (
-    <div className="the-big">
+          <Container className="the-big">
+
       <Header />
 
       <form className="homeform">
-        
-          <Typed
-            Typed
-            strings={[
-              "I am a front-end-dev",
-              "welcome to my website",
-              "see u",
-              "",
-            ]}
-            typeSpeed={60}
-            backSpeed={30}
-            attr="placeholder"
-            loop={false} 
-          >
-            <input className="typed" type="text" />
-          </Typed>
-      
+
+
+        <Typed
+          Typed
+          strings={[
+            "I am a front-end-dev",
+            "welcome to my website",
+            "see u",
+            "",
+          ]}
+          typeSpeed={60}
+          backSpeed={30}
+          attr="placeholder"
+          loop={false}
+        >
+          <input className="typed" type="text" />
+        </Typed>
+
+
         <p style={{ fontSize: "20px", fontWeight: "300" }}>
           Welcome to our platform <span> &#10084; </span>
         </p>
@@ -72,9 +76,9 @@ const Homepage = () => {
             signInWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
                 // Signed in
-              
+
                 window.location.href = "https://courageous-froyo-50292c.netlify.app/";
-              
+
                 console.log("done");
                 // const user = userCredential.user;
                 // ...
@@ -167,7 +171,7 @@ const Homepage = () => {
 
         {/* <Footer /> */}
       </form>
-    </div>
+    </Container>
   );
 };
 

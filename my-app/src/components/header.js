@@ -34,12 +34,11 @@ const Header = () => {
 
         <List>
         <ListItem disablePadding  sx={{ display:"flex", justifyContent:"center"}}>
-        <IconButton sx={{ ml: 1 , color:"#2196f3"}}  >
+        <IconButton sx={{  color:"#2196f3"}}  >
          <Brightness7Icon />  <Brightness4Icon />
          </IconButton>
-        <Divider />
         </ListItem>
-
+        <Divider />
 
           <ListItem disablePadding>
             <ListItemButton>

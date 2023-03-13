@@ -18,3 +18,18 @@ display:none !important;
 
 
 }
+
+
+@media (max-width:550px){
+
+  
+
+  .drawer{
+
+display:none;
+
+  }
+
+
+}
+
