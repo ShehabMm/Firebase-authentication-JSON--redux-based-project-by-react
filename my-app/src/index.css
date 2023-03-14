@@ -1,53 +1,44 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
   padding: 0;
   box-sizing: border-box;
-
 }
 
-.the-big{
-overflow: hidden;
-
+.the-big {
+  overflow: hidden;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .the-big form {
-max-width: 50vw;
+  max-width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
   flex-wrap: wrap;
-top:20%;
-left:50%;
+  top: 20%;
+  left: 50%;
   text-align: center;
-  
 }
 
-@media (max-width:550px){
-
-  .the-big form{
-
-font-size: 0.2em;
-left:10%;
-
+@media (max-width: 550px) {
+  .the-big form {
+    font-size: 0.2em;
+    left: 10%;
   }
-
-
 }
-
-
 
 .signup-form {
   background-color: black;
@@ -56,9 +47,9 @@ left:10%;
   position: fixed;
   justify-content: center;
   align-items: center;
-  top:30%;
-  bottom:50%;
-  right:45%;
+  top: 30%;
+  bottom: 50%;
+  right: 45%;
 }
 
 form input {
@@ -158,23 +149,25 @@ form p a:active {
   transition: 0.8s ease-in-out;
 }
 
-.typed{
-background-color: transparent;
-font-size: large;
-accent-color: red;
-width: 300px;
-}
-.typed:focus{
-outline:none;
-color: #076000;
-
-}
-.typed::placeholder{
-
-  color:red;
+.typed {
+  background-color: transparent;
+  font-size: large;
+  accent-color: red;
+  width: 300px;
 }
 
-.typed, select, textarea{
+.typed:focus {
+  outline: none;
+  color: #076000;
+}
+
+.typed::placeholder {
+  color: red;
+}
+
+.typed,
+select,
+textarea {
   color: #11fe00;
   font-size: 20px;
 }

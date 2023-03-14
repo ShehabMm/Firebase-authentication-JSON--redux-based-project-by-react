@@ -48,8 +48,8 @@ const Appbarr = ({ drawerWidth }) => {
   };
 
   return (
-    <div>
-      <AppBar sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }} className="app-bar" position="static">
+    <Box component="header"   className="box-app">
+      <AppBar sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }} className="app-bar" position="fixed">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -176,7 +176,7 @@ const Appbarr = ({ drawerWidth }) => {
           </Toolbar>
         </Container>
       </AppBar>
-    </div>
+    </Box>
   );
 
 }

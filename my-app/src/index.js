@@ -13,8 +13,6 @@ import Newex from "./pages/Newex";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 
 
 const router = createBrowserRouter([
@@ -83,11 +81,6 @@ const router = createBrowserRouter([
 
 ]);
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
 
 
@@ -96,10 +89,8 @@ root.render(
 
 
 <React.StrictMode>
-  <ThemeProvider theme={darkTheme}>
-    <CssBaseline />
+  
     <RouterProvider router={router} />
-  </ThemeProvider>
 
 
 </React.StrictMode>

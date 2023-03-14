@@ -12,7 +12,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const drawerWidth = 280;
 
-const Header = () => {
+const Drawerr = (setmyMode) => {
   return (
     <Box>
       <Appbarr drawerWidth={drawerWidth} />
@@ -34,8 +34,8 @@ const Header = () => {
 
         <List>
         <ListItem disablePadding  sx={{ display:"flex", justifyContent:"center"}}>
-        <IconButton sx={{  color:"#2196f3"}}  >
-         <Brightness7Icon />  <Brightness4Icon />
+        <IconButton sx={{  color:"#2196f3", top:"-40px",positin:"fixed" }}  onClick={()=>{   setmyMode("light")  }}   >
+         <Brightness7Icon  />  <Brightness4Icon />
          </IconButton>
         </ListItem>
         <Divider />
@@ -70,4 +70,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Drawerr;
