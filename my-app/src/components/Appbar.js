@@ -90,7 +90,7 @@ const Appbarr = ({ drawerWidth }) => {
                 ))}
               </Menu>
             </Box>
-            <img style={{width:"100px", height:"100px"}} src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1676312330/shehab/SL-111719-25140-24-removebg-preview_chrjqn.png" alt="" />
+            <img style={{width:"100px", height:"50px"}} src="https://res.cloudinary.com/dvytkrzaq/image/upload/v1676312330/shehab/SL-111719-25140-24-removebg-preview_chrjqn.png" alt="" />
             
 
 

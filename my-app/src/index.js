@@ -14,7 +14,6 @@ import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +33,6 @@ const router = createBrowserRouter([
     errorElement: <Error404 />,
   },
 
-
   {
     path: "/Loading",
     element: <Loading />,
@@ -52,20 +50,17 @@ const router = createBrowserRouter([
     // errorElement: <Error404 />,
   },
 
-
   // {
   //   path: "/Create",
   //   element: <Create />,
   //   // errorElement: <Error404 />,
   // },
 
-
   {
     path: "/Homeresult",
     element: <Homeresult />,
     // errorElement: <Error404 />,
   },
-
 
   {
     path: "/Emailjs",
@@ -76,22 +71,12 @@ const router = createBrowserRouter([
     path: "/Form",
     element: <Contactform />,
     // errorElement: <Error404 />,
-  }
-
-
+  },
 ]);
-
-
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
-
-<React.StrictMode>
-  
+  <React.StrictMode>
     <RouterProvider router={router} />
-
-
-</React.StrictMode>
+  </React.StrictMode>
 );

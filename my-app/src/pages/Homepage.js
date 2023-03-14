@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { useState } from "react";
-import Drawer from "../components/DrawerConstant";
+import Drawerr from "../components/DrawerConstant";
 import Typed from "react-typed";
 import { Container } from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -30,11 +30,12 @@ const Homepage = () => {
 
 
 
-  const [myMode, setmyMode] = useState("dark");
+  const [myMode, setmyMode] = useState(localStorage.getItem("currentMode")===null?"dark":localStorage.getItem("currentMode")==="light?"?"light":"dark");
   const darkTheme = createTheme({
     palette: {
-      mode: myMode,
-    },
+    // @ts-ignore
+    mode: myMode,
+    }
   });
   return (
     <ThemeProvider theme={darkTheme}>
@@ -42,13 +43,14 @@ const Homepage = () => {
 
       <Container className="the-big">
 
-        <Drawer />
+        <Drawerr setmyMode={setmyMode}/>
 
         <form className="homeform">
 
 
           <Typed
-            Typed
+// @ts-ignore
+          Typed
             strings={[
               "I am a front-end-dev",
               "welcome to my website",
