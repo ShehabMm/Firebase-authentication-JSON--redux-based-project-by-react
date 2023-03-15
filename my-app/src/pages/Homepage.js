@@ -8,10 +8,14 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 import Drawerr from "../components/DrawerConstant";
-import Typed from "react-typed";
+// import Typed from "react-typed";
 import { Container } from "@mui/material";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Appbarr from "../components/Appbar";
+import { grey, red } from "@mui/material/colors";
+
+const drawerWidth = 280;
 
 const Homepage = () => {
   const [email, setemail] = useState("");
@@ -22,35 +26,57 @@ const Homepage = () => {
   const [showForm, setshowForm] = useState("");
   const [showSendEmail, setshowSendEmail] = useState(false);
   const [resetEmail, setresetEmail] = useState("");
-
-
-
-
-
-
-
-
-  const [myMode, setmyMode] = useState(localStorage.getItem("currentMode")===null?"dark":localStorage.getItem("currentMode")==="light?"?"light":"dark");
+  const [mode, setmyMode] = useState(
+    localStorage.getItem("currentMode") === null
+      ? "dark"
+      : localStorage.getItem("currentMode") === "light?"
+        ? "light"
+        : "dark"
+  );
   const darkTheme = createTheme({
     palette: {
-    // @ts-ignore
-    mode: myMode,
-    }
+      // @ts-ignore
+      mode,
+      ...(mode === "light"
+        ? {
+          // palette values for light mode
+          primary: {
+            main: red[700],
+          },
+        }
+        : {
+          // palette values for dark mode
+
+          primary: {
+            main: grey[900],
+          },
+        }),
+    },
   });
+  const [noneOrblock, setnoneOrblock] = useState("none");
+  const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-
       <Container className="the-big">
+        <Appbarr
+          drawerWidth={drawerWidth}
+          setnoneOrblock={setnoneOrblock}
+          setpermanentOrtemp={setpermanentOrtemp}
+        />
 
-        <Drawerr setmyMode={setmyMode}/>
+        <Drawerr
+          setmyMode={setmyMode}
+          noneOrblock={noneOrblock}
+          setnoneOrblock={setnoneOrblock}
+          permanentOrtemp={permanentOrtemp}
+        />
 
         <form className="homeform">
-
-
-          <Typed
-// @ts-ignore
-          Typed
+          {/* <Typed
+            // @ts-ignore
+            Typed
             strings={[
               "I am a front-end-dev",
               "welcome to my website",
@@ -63,8 +89,7 @@ const Homepage = () => {
             loop={false}
           >
             <input className="typed" type="text" />
-          </Typed>
-
+          </Typed> */}
 
           <p style={{ fontSize: "20px", fontWeight: "300" }}>
             Welcome to our platform <span> &#10084; </span>
@@ -96,7 +121,8 @@ const Homepage = () => {
                 .then((userCredential) => {
                   // Signed in
 
-                  window.location.href = "https://courageous-froyo-50292c.netlify.app/";
+                  window.location.href =
+                    "https://courageous-froyo-50292c.netlify.app/";
 
                   console.log("done");
                   // const user = userCredential.user;

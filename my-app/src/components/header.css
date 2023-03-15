@@ -15,6 +15,7 @@
 }
 .box-app{
 padding: 0 !important;
+border:2px solid red;
 }
 
 .css-1uzrjc8-MuiSvgIcon-root{
@@ -24,7 +25,7 @@ display:none !important;
 }
 
 
-@media (max-width:550px){
+/* @media (max-width:600px){
 
   
 
@@ -35,5 +36,5 @@ display:none;
   }
 
 
-}
+} */
 
