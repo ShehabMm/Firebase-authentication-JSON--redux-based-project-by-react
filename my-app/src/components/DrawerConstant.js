@@ -120,12 +120,18 @@ const Drawerr = ({ setmyMode,noneOrblock,permanentOrtemp,setnoneOrblock }) => {
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding>
+          <ListItem disablePadding     onClick={()=>{
+
+navigate("/mydata")
+
+          }}      >
             <ListItemButton>
               <ListItemIcon>
                 <FolderSpecialIcon />
               </ListItemIcon>
-              <ListItemText primary="My Data" />
+              <ListItemText primary="My Data" sx={{
+              bgcolor: currentLocation.pathname === "/mydata" ? "red" : null,
+            }} />
             </ListItemButton>
           </ListItem>
 

@@ -13,6 +13,7 @@ import Create from "../src/create/create";
 import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
+import MyData from "./components/myData";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,15 @@ const router = createBrowserRouter([
     element: <Contactform />,
     // errorElement: <Error404 />,
   },
+
+  
+
+  {
+    path: "/mydata",
+    element: <MyData />,
+    // errorElement: <Error404 />,
+  },
+
 
 
 

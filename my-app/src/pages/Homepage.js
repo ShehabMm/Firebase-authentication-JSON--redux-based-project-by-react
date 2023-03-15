@@ -71,6 +71,7 @@ const Homepage = () => {
           noneOrblock={noneOrblock}
           setnoneOrblock={setnoneOrblock}
           permanentOrtemp={permanentOrtemp}
+          mode={mode}
         />
 
         <form className="homeform">

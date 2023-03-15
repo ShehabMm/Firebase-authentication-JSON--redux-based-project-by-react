@@ -4,22 +4,25 @@ import {
   createTheme,
   CssBaseline,
   InputAdornment,
-  Stack,
   TextField,
   ThemeProvider,
 } from "@mui/material";
 import { grey, red } from "@mui/material/colors";
 import React, { useState } from "react";
-import Drawerr from "../components/DrawerConstant";
 import EmojiPeople from "@mui/icons-material/EmojiPeople";
+import Drawerr from "../components/DrawerConstant";
 const Create = () => {
+
   const [mode, setmyMode] = useState(
     localStorage.getItem("currentMode") === null
       ? "dark"
       : localStorage.getItem("currentMode") === "light?"
-      ? "light"
-      : "dark"
+        ? "light"
+        : "dark"
   );
+
+
+
 
   const darkTheme = createTheme({
     palette: {
@@ -27,29 +30,30 @@ const Create = () => {
       mode,
       ...(mode === "light"
         ? {
-            // palette values for light mode
-            primary: {
-              main: red[700],
-            },
-          }
+          // palette values for light mode
+          primary: {
+            main: red[700],
+          },
+        }
         : {
-            // palette values for dark mode
+          // palette values for dark mode
 
-            primary: {
-              main: grey[900],
-            },
-          }),
+          primary: {
+            main: grey[900],
+          },
+        }),
     },
   });
+
+  const [title, settitle] = useState("");
+  const [price, setprice] = useState(0);
 
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <>
         <div>
-          <Drawerr
-            setmyMode={setmyMode}
-          />
+          <Drawerr setmyMode={setmyMode} mode={mode} permanentOrtemp={undefined} setnoneOrblock={undefined} />
         </div>
 
         <Container
@@ -67,7 +71,10 @@ const Create = () => {
           }}
         >
           <TextField
-            name="title"
+          autoComplete="off"
+            onChange={(eo) => {
+              settitle(eo.target.value);
+            }}
             label="Title"
             variant="filled"
             InputProps={{
@@ -80,7 +87,11 @@ const Create = () => {
           />
 
           <TextField
-            name={price}
+                    autoComplete="off"
+
+            onChange={(eo) => {
+              setprice(Number(eo.target.value));
+            }}
             label="Price"
             variant="filled"
             sx={{ mt: "50px" }}
@@ -95,7 +106,8 @@ const Create = () => {
             sx={{ mt: 4 }}
             variant="contained"
             color="error"
-            onChange={() => {
+            onClick={(eo) => {
+              eo.preventDefault();
               fetch("http://localhost:3100/mydata", {
                 method: "POST",
                 headers: {
