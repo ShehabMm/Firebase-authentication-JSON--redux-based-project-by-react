@@ -12,7 +12,6 @@ import React, { useState } from "react";
 import EmojiPeople from "@mui/icons-material/EmojiPeople";
 import Drawerr from "../components/DrawerConstant";
 const Create = () => {
-
   const [mode, setmyMode] = useState(
     localStorage.getItem("currentMode") === null
       ? "dark"
@@ -21,9 +20,8 @@ const Create = () => {
         : "dark"
   );
 
-
-
-
+  const [title, settitle] = useState("");
+  const [price, setprice] = useState(0);
   const darkTheme = createTheme({
     palette: {
       // @ts-ignore
@@ -45,15 +43,17 @@ const Create = () => {
     },
   });
 
-  const [title, settitle] = useState("");
-  const [price, setprice] = useState(0);
-
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <>
         <div>
-          <Drawerr setmyMode={setmyMode} mode={mode} permanentOrtemp={undefined} setnoneOrblock={undefined} />
+          <Drawerr
+            setmyMode={setmyMode}
+            mode={mode}
+            permanentOrtemp={undefined}
+            setnoneOrblock={undefined}
+          />
         </div>
 
         <Container
@@ -71,7 +71,7 @@ const Create = () => {
           }}
         >
           <TextField
-          autoComplete="off"
+            autoComplete="off"
             onChange={(eo) => {
               settitle(eo.target.value);
             }}
@@ -87,8 +87,7 @@ const Create = () => {
           />
 
           <TextField
-                    autoComplete="off"
-
+            autoComplete="off"
             onChange={(eo) => {
               setprice(Number(eo.target.value));
             }}
@@ -107,7 +106,6 @@ const Create = () => {
             variant="contained"
             color="error"
             onClick={(eo) => {
-              eo.preventDefault();
               fetch("http://localhost:3100/mydata", {
                 method: "POST",
                 headers: {
@@ -119,12 +117,20 @@ const Create = () => {
           >
             Submit
           </Button>
+          <br />
 
-
-          <button 
-        
-          
-          >delete</button>
+          <Button
+            sx={{ mt: 4 }}
+            variant="contained"
+            color="error"
+            onClick={(eo) => {
+              fetch("http://localhost:3100/mydata/3", {
+                method: "DELETE",
+              });
+            }}
+          >
+            delete
+          </Button>
         </Container>
       </>
     </ThemeProvider>

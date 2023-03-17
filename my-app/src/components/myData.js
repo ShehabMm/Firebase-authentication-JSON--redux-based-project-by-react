@@ -1,83 +1,131 @@
-import { Box, IconButton, Paper, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import GppBad from "@mui/icons-material/GppBad";
-// import Drawerr from "./DrawerConstant";
+import { IconButton, Paper, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+
+
+
+
+
 
 const MyData = () => {
-  const [mydata, setmydata] = useState([]);
+  const [ladata, setmydata] = useState([]);
 
   useEffect(() => {
+
     fetch("http://localhost:3100/mydata")
       .then((response) => response.json())
-      .then((data) => setmydata(data));
-  }, []);
-  console.log(mydata);
-  return (
-    <>
-      {/* <Drawerr /> */}
+      .then((data) => setmydata(data))
+  }, [ladata])
 
-      <Box
-        sx={{
-          border: "2px solid red",
-          ml: 50,
-          mr: 50,
-          display: "flex",
-          justifyContent: "center",
-          textAlign: "center",
-          flexDirection: "column",
-          flexWrap: "wrap",
-          "& > :not(style)": {
-            m: 2,
-            width: "20%",
-            height: 70,
-          },
-        }}
-      >
-        {mydata.map((item) => {
-          return (
-            <>
-            <Paper
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                minWidth: "400px",
-                position: "relative",
-                height: "10px",
-                alignItems: "center",
-                backgroundColor: "gold",
+
+
+
+
+
+  let total = 0
+  return (
+    <div>
+
+      {ladata.map((item) => {
+
+        total += item.price
+        return (
+
+
+          <Paper key={item.id}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              position: "relative",
+              height: "70px",
+              alignItems: "center",
+              backgroundColor: "gold",
+              width: "400px",
+              m: "auto",
+              mt: "20px",
+              top: "100px",
+
+            }}
+          >
+
+            <Typography variant="h6" color="warm" sx={{ px: 2, mt: 5, mb: 2 }}>
+              {item.title}
+            </Typography>
+            <Typography variant="h6" color="initial" sx={{ px: 2, mt: 5, mb: 2 }}>
+              {item.price}
+            </Typography>
+
+
+            <IconButton
+              sx={{ position: "absolute", right: "0", bottom: "38px" }}
+
+              onClick={(eo) => {
+
+                fetch(`http://localhost:3100/mydata/${item.id}`, {
+
+                  method: "DELETE",
+
+                });
 
 
 
               }}
+
+
             >
-              <Typography variant="h6" color="warm" sx={{ px: 2, mt: 5 }}>
-                {item.title}
-              </Typography>
-              <Typography variant="h6" color="initial" sx={{ px: 2, mt: 5 }}>
-                ${item.price}
-              </Typography>
 
+              <CloseIcon />
 
-              <IconButton
-
-
-              
-
-              sx={{ position: "absolute", right: "-10px", top: "-8px" }}>
-              <GppBad  
-              
-              
-              />
             </IconButton>
           </Paper>
 
-          </>
-      );
-      })}
-    </Box>
-    </>
 
+
+
+
+
+
+        )
+      })}
+
+
+      <Paper
+
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          position: "relative",
+          height: "70px",
+          alignItems: "center",
+          background: "rgba(4, 216, 65, 0.41)",
+          boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+          backdropFilter: "blur( 4px )",
+          borderRadius: "10px",
+          border: "1px solid rgba( 255, 255, 255, 0.18 )",
+          width: "200px",
+          m: "auto",
+          mt: "20px",
+          top: "100px",
+
+        }}
+      >
+        <Typography variant="h6" color="white" sx={{ ml: 1 }}>
+
+      Total Price =  $ {total}
+
+        </Typography>
+
+      </Paper>
+
+
+
+
+    </div >
   );
-};
+}
 
 export default MyData;
+
+
+
+

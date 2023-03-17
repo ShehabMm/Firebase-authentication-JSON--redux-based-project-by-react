@@ -132,7 +132,7 @@ const Appbarr = ({ drawerWidth, setnoneOrblock, setpermanentOrtemp }) => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Shehab">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
