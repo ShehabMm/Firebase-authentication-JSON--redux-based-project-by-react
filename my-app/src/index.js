@@ -14,6 +14,8 @@ import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
 import MyData from "./components/myData";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -74,22 +76,18 @@ const router = createBrowserRouter([
     // errorElement: <Error404 />,
   },
 
-  
-
   {
     path: "/mydata",
     element: <MyData />,
     // errorElement: <Error404 />,
   },
-
-
-
-
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

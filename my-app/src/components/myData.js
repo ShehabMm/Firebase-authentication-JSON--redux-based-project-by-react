@@ -1,38 +1,25 @@
-import { IconButton, Paper, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
-
-
-
-
-
+import { IconButton, Paper, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import Drawerr from "./DrawerConstant";
 
 const MyData = () => {
   const [ladata, setmydata] = useState([]);
 
   useEffect(() => {
-
     fetch("http://localhost:3100/mydata")
       .then((response) => response.json())
-      .then((data) => setmydata(data))
-  }, [ladata])
+      .then((data) => setmydata(data));
+  }, [ladata]);
 
-
-
-
-
-
-  let total = 0
+  let total = 0;
   return (
     <div>
-
       {ladata.map((item) => {
-
-        total += item.price
+        total += item.price;
         return (
-
-
-          <Paper key={item.id}
+          <Paper
+            key={item.id}
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -44,53 +31,34 @@ const MyData = () => {
               m: "auto",
               mt: "20px",
               top: "100px",
-
             }}
           >
-
             <Typography variant="h6" color="warm" sx={{ px: 2, mt: 5, mb: 2 }}>
               {item.title}
             </Typography>
-            <Typography variant="h6" color="initial" sx={{ px: 2, mt: 5, mb: 2 }}>
+            <Typography
+              variant="h6"
+              color="initial"
+              sx={{ px: 2, mt: 5, mb: 2 }}
+            >
               {item.price}
             </Typography>
 
-
             <IconButton
               sx={{ position: "absolute", right: "0", bottom: "38px" }}
-
               onClick={(eo) => {
-
                 fetch(`http://localhost:3100/mydata/${item.id}`, {
-
                   method: "DELETE",
-
                 });
-
-
-
               }}
-
-
             >
-
               <CloseIcon />
-
             </IconButton>
           </Paper>
-
-
-
-
-
-
-
-        )
+        );
       })}
 
-
       <Paper
-
         sx={{
           display: "flex",
           justifyContent: "space-between",
@@ -106,26 +74,17 @@ const MyData = () => {
           m: "auto",
           mt: "20px",
           top: "100px",
-
         }}
       >
         <Typography variant="h6" color="white" sx={{ ml: 1 }}>
-
-      Total Price =  $ {total}
-
+          Total Price = $ {total}
         </Typography>
-
       </Paper>
-
-
-
-
-    </div >
+      <
+        // @ts-ignore
+        Drawerr />
+    </div>
   );
-}
+};
 
 export default MyData;
-
-
-
-
