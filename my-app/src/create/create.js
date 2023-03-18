@@ -2,6 +2,7 @@ import { Button, Container, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 import EmojiPeople from "@mui/icons-material/EmojiPeople";
 import Drawerr from "../components/DrawerConstant";
+import Appbarr from "../components/Appbar";
 const Create = () => {
   const [title, settitle] = useState("");
   const [price, setprice] = useState(0);
@@ -14,6 +15,8 @@ const Create = () => {
     <>
       <div>
         <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}                />
+      <  Appbarr drawerWidth={280} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}/>
+    
       </div>
 
       <Container

@@ -2,6 +2,7 @@ import { IconButton, Paper, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Drawerr from "./DrawerConstant";
+import Appbarr from "./Appbar";
 
 const MyData = () => {
   const [ladata, setmydata] = useState([]);
@@ -86,6 +87,8 @@ const MyData = () => {
           Total Price = $ {total}
         </Typography>
       </Paper>
+      < Appbarr drawerWidth={280} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}/>
+
       <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
     </div>
   );

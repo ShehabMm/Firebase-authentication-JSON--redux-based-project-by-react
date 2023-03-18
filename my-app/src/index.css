@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
@@ -11,9 +11,7 @@ body {
   box-sizing: border-box;
 }
 
-.the-big {
-  overflow: hidden;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -21,22 +19,63 @@ code {
 }
 
 .the-big form {
-  max-width: 50vw;
+  text-align: center;
+  max-width: 20vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  align-content: center;
+  position: relative;
   flex-wrap: wrap;
-  top: 20%;
-  left: 50%;
+  top: 150px;
+  max-height: 70%;
   text-align: center;
+  overflow: hidden;
+  background-color: #144b1009;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(125, 160, 20, 0.893);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 150px;
+
 }
 
-@media (max-width: 550px) {
+@media (max-width: 950px) {
   .the-big form {
     font-size: 0.2em;
-    left: 10%;
+    margin-left: 50%;
+    margin-right: auto;
+    max-width: 30vw;
+    max-height: 60%;
+
+  }
+}
+
+@media (max-width: 600px) {
+  .the-big form {
+    font-size: 0.2em;
+    margin-left: 20px;
+    margin-right: 250px;
+    min-width: 100%;
+
+  }
+}
+
+
+@media (max-width: 400px) {
+  .the-big form {
+    font-size: 0.2em;
+    margin-left: 0;
+    margin-right: 250px;
+    min-width: 100%;
+    display: block;
+    margin: auto;
+
   }
 }
 

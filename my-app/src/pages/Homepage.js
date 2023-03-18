@@ -13,7 +13,6 @@ import { Container } from "@mui/material";
 import Appbarr from "../components/Appbar";
 
 const drawerWidth = 280;
-
 const Homepage = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -26,7 +25,6 @@ const Homepage = () => {
   const [noneOrblock, setnoneOrblock] = useState("none");
   const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
 
-
   return (
     <Container className="the-big">
       <Appbarr
@@ -35,7 +33,12 @@ const Homepage = () => {
         setpermanentOrtemp={setpermanentOrtemp}
       />
 
-      <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
+      <Drawerr
+        noneOrblock={noneOrblock}
+        permanentOrtemp={permanentOrtemp}
+        setnoneOrblock={setnoneOrblock}
+        setpermanentOrtemp={setpermanentOrtemp}
+      />
 
       <form className="homeform">
         {/* <Typed
@@ -85,8 +88,8 @@ const Homepage = () => {
               .then((userCredential) => {
                 // Signed in
 
-                window.location.href =
-                  "https://courageous-froyo-50292c.netlify.app/";
+                window.location.replace("https:courageous-froyo-50292c.netlify.app"
+                );;
 
                 console.log("done");
                 // const user = userCredential.user;
@@ -111,12 +114,11 @@ const Homepage = () => {
               });
           }}
         >
-          Sign in{" "}
+          Sign in
         </button>
         <br />
 
         <p>
-          {" "}
           Don't have an account<Link to="/sign-up"> Sign-up </Link>{" "}
         </p>
 
@@ -168,7 +170,6 @@ const Homepage = () => {
                   });
               }}
             >
-              {" "}
               Reset password
             </button>
             <br /> <br />

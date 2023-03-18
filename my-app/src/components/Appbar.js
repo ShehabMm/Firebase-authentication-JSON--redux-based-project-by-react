@@ -41,7 +41,7 @@ const Appbarr = ({ drawerWidth, setnoneOrblock, setpermanentOrtemp }) => {
     <AppBar
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
-        ml: { sm: `${drawerWidth}px` },
+        ml: { sm: `${drawerWidth}px` }
       }}
       className="app-bar"
       position="fixed"
@@ -67,17 +67,17 @@ const Appbarr = ({ drawerWidth, setnoneOrblock, setpermanentOrtemp }) => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left",
+                horizontal: "left"
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "left"
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", md: "none" }
               }}
             >
               {pages.map((page) => (

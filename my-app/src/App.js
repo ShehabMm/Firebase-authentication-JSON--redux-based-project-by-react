@@ -79,7 +79,6 @@ const App = () => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div>
-
         <RouterProvider router={router} />
       </div>
     </ThemeProvider>
