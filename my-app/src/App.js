@@ -5,9 +5,7 @@ import Signup from "./pages/Sign-up";
 import Loading from "./components/loading";
 import PopupForm from "./components/Popup form";
 import Error404 from "./pages/error404";
-import Newex from "./pages/Newex";
 import Create from "./create/create";
-import Homeresult from "./create/Homeresult";
 import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
 import MyData from "./components/myData";
@@ -39,11 +37,7 @@ const router = createBrowserRouter([
     element: <PopupForm />,
     errorElement: <Error404 />,
   },
-  {
-    path: "/Newex",
-    element: <Newex cls={""} children={""} />,
-    errorElement: <Error404 />,
-  },
+
 
   {
     path: "/Create",
@@ -51,11 +45,7 @@ const router = createBrowserRouter([
     errorElement: <Error404 />,
   },
 
-  {
-    path: "/Homeresult",
-    element: <Homeresult />,
-    errorElement: <Error404 />,
-  },
+  
 
   {
     path: "/Emailjs",

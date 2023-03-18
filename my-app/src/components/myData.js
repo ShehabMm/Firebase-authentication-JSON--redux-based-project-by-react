@@ -80,9 +80,7 @@ const MyData = () => {
           Total Price = $ {total}
         </Typography>
       </Paper>
-      <
-        // @ts-ignore
-        Drawerr />
+      <Drawerr />
     </div>
   );
 };

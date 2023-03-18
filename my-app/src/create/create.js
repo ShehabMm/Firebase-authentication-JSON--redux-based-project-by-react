@@ -9,7 +9,8 @@ const Create = () => {
   return (
     <>
       <div>
-        <Drawerr/>
+        <Drawerr
+                />
       </div>
 
       <Container
@@ -73,18 +74,6 @@ const Create = () => {
         </Button>
         <br />
 
-        <Button
-          sx={{ mt: 4 }}
-          variant="contained"
-          color="error"
-          onClick={(eo) => {
-            fetch("http://localhost:3100/mydata/3", {
-              method: "DELETE",
-            });
-          }}
-        >
-          delete
-        </Button>
       </Container>
     </>
   );

@@ -20,19 +20,16 @@ import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import { useLocation, useNavigate } from "react-router-dom";
 import Home from "@mui/icons-material/Home";
 import "./header.css";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../redux/counterSlice";
 
-
 const drawerWidth = 280;
-
 const Drawerr = () => {
   const navigate = useNavigate();
-
   const theme = useTheme();
-
   const currentLocation = useLocation();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  // @ts-ignore
   const { myTheme } = useSelector((state) => state.counter);
 
   return (
@@ -40,7 +37,6 @@ const Drawerr = () => {
       <Drawer
         className="drawer"
         sx={{
-
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
@@ -51,10 +47,7 @@ const Drawerr = () => {
         variant="permanent"
         anchor="left"
         open={true}
-        onClose={() => {
-
-
-        }}
+        onClose={() => { }}
       >
         <Divider />
 
@@ -66,11 +59,12 @@ const Drawerr = () => {
             <IconButton
               sx={{ color: "#2196f3", top: "0", positin: "fixed" }}
               onClick={() => {
+                dispatch(increment(myTheme === "dark" ? "light" : "dark"));
 
-                dispatch(increment(myTheme === "dark" ? "light" : "dark"))
-
-                localStorage.setItem("currentMode", theme.palette.mode === "dark"? "light":"dark")
-
+                localStorage.setItem(
+                  "currentMode",
+                  theme.palette.mode === "dark" ? "light" : "dark"
+                );
               }}
             >
               {theme.palette.mode === "dark" ? (
@@ -87,8 +81,8 @@ const Drawerr = () => {
             sx={{
               bgcolor:
                 currentLocation.pathname === "/"
-                  ? theme.palette.primary.main
-                  : null,
+              ? theme.palette.error.light : null
+
             }}
             onClick={() => {
               navigate("/");
@@ -107,7 +101,7 @@ const Drawerr = () => {
             sx={{
               bgcolor:
                 currentLocation.pathname === "/create"
-                  ? theme.palette.primary.main
+                  ? theme.palette.error.light
                   : null,
             }}
             onClick={() => {
@@ -123,6 +117,12 @@ const Drawerr = () => {
           </ListItem>
 
           <ListItem
+            sx={{
+              bgcolor:
+                currentLocation.pathname === "/mydata"
+                  ? theme.palette.error.light
+                  : null,
+            }}
             disablePadding
             onClick={() => {
               navigate("/mydata");
@@ -134,15 +134,17 @@ const Drawerr = () => {
               </ListItemIcon>
               <ListItemText
                 primary="My Data"
-                sx={{
-                  bgcolor:
-                    currentLocation.pathname === "/mydata" ? "red" : null,
-                }}
+              
               />
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding>
+          <ListItem disablePadding 
+          onClick={() => {
+            navigate("https:courageous-froyo-50292c.netlify.app")
+          }}
+          
+          >
             <ListItemButton>
               <ListItemIcon>
                 <Person2 />
@@ -169,7 +171,7 @@ const Drawerr = () => {
           </ListItem>
         </List>
       </Drawer>
-    </Box >
+    </Box>
   );
 };
 
