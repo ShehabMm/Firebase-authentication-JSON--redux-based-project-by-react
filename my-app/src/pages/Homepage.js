@@ -25,13 +25,14 @@ const Homepage = () => {
   const [resetEmail, setresetEmail] = useState("");
 
   return (
-
-    < Container className="the-big" >
-      <Appbarr drawerWidth={drawerWidth} setnoneOrblock={undefined} setpermanentOrtemp={undefined} />
-
-      <Drawerr
-
+    <Container className="the-big">
+      <Appbarr
+        drawerWidth={drawerWidth}
+        setnoneOrblock={undefined}
+        setpermanentOrtemp={undefined}
       />
+
+      <Drawerr />
 
       <form className="homeform">
         {/* <Typed
@@ -131,7 +132,7 @@ const Homepage = () => {
         {/* "pop up form  */}
 
         <div>
-          <form className={`popup-form ${showForm}`}>
+          <div className={`popup-form ${showForm}`}>
             <span
               onClick={() => {
                 setshowForm("hide-popup-form");
@@ -171,12 +172,12 @@ const Homepage = () => {
             {showSendEmail && (
               <p>please check your email to reset your password</p>
             )}
-          </form>
+          </div>
         </div>
 
         {/* <Footer /> */}
       </form>
-    </Container >
+    </Container>
   );
 };
 

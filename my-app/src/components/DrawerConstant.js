@@ -20,7 +20,7 @@ import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import { useLocation, useNavigate } from "react-router-dom";
 import Home from "@mui/icons-material/Home";
 import "./header.css";
-import { useDispatch } from "react-redux";
+import {  useDispatch, useSelector } from 'react-redux'
 import { increment } from "../redux/counterSlice";
 
 
@@ -33,6 +33,7 @@ const Drawerr = () => {
 
   const currentLocation = useLocation();
   const dispatch = useDispatch()
+  const { myTheme } = useSelector((state) => state.counter);
 
   return (
     <Box>
@@ -66,8 +67,7 @@ const Drawerr = () => {
               sx={{ color: "#2196f3", top: "0", positin: "fixed" }}
               onClick={() => {
 
-                dispatch(increment())       
-                
+                dispatch(increment(myTheme==="dark"?"light":"dark"))
               
 
 

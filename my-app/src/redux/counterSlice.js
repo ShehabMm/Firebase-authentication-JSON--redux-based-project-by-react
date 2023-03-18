@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  myTheme: "dark",
+  myTheme : "dark",
 }
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.myTheme = "light"
+    increment: (state,action) => {
+      state.myTheme = action.payload
     },
     // decrement: (state) => {
     //   state.value -= 1
