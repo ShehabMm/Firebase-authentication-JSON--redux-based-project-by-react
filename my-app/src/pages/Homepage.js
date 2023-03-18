@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 import Drawerr from "../components/DrawerConstant";
-// import Typed from "react-typed";
+import Typed from "react-typed";
 import { Container } from "@mui/material";
 import Appbarr from "../components/Appbar";
 
@@ -41,28 +41,30 @@ const Homepage = () => {
       />
 
       <form className="homeform">
-        {/* <Typed
-            // @ts-ignore
-            Typed
-            strings={[
-              "I am a front-end-dev",
-              "welcome to my website",
-              "see u",
-              "",
-            ]}
-            typeSpeed={60}
-            backSpeed={30}
-            attr="placeholder"
-            loop={false}
-          >
-            <input className="typed" type="text" />
-          </Typed> */}
+        <Typed
+          // @ts-ignore
+          Typed
+          strings={[
+            "I am a front-end-dev",
+            "welcome to my website",
+            "see u",
+            "",
+          ]}
+          typeSpeed={60}
+          backSpeed={30}
+          attr="placeholder"
+          loop={false}
+        >
+          <input className="typed" type="text" />
+        </Typed>
 
         <p style={{ fontSize: "20px", fontWeight: "300" }}>
           Welcome to our platform <span> &#10084; </span>
         </p>
 
         <input
+          style={{ border: "1px solid black" }}
+
           onChange={(eo) => {
             setemail(eo.target.value);
           }}
@@ -72,6 +74,8 @@ const Homepage = () => {
         />
 
         <input
+          style={{ border: "1px solid black" }}
+
           onChange={(eo) => {
             setpassword(eo.target.value);
           }}

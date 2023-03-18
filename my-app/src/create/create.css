@@ -1,4 +1,4 @@
-.createParent {
+/* .createParent {
   background-color: #212121;
   min-height: 100vh;
   max-width: 100vw;
@@ -20,6 +20,7 @@
   position: fixed;
   right: 0;
   box-shadow: 0 0 10px rgb(232, 194, 194);
+
 }
 
 .aside {
@@ -150,7 +151,69 @@ background-color: beige !important;
 
 textarea:focus, .gooooput:focus {
   color: #ff0000;
+} */
+
+
+
+.create-app{
+width: 100% ;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+align-content: center;
+border: 2px solid red;
+position: fixed;
+left:500px;
+height: 80vh;
+
 }
 
 
+/* @media (max-width:770px){
 
+
+  .create-app{
+min-width:20%;
+margin-right: auto;
+margin-left: auto;
+align-items: center;
+justify-content: center;
+align-content: center;
+
+  }
+
+}
+
+@media (max-width:600px){
+
+
+  .create-app{
+position: fixed !important;
+min-width:20%;
+left:20px !important;
+margin-right: 200px;
+align-items: center;
+justify-content: center;
+align-content: center;
+
+  }
+
+}
+
+
+@media (max-width:3800px){
+
+
+  .create-app{
+position: fixed !important;
+min-width:10%;
+left:0 !important;
+margin-right: 200px;
+align-items: center;
+justify-content: center;
+align-content: center;
+
+  }
+
+} */
