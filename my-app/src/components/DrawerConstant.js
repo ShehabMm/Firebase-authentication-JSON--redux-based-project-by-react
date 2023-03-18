@@ -19,21 +19,26 @@ import Email from "@mui/icons-material/Email";
 import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import { useLocation, useNavigate } from "react-router-dom";
 import Home from "@mui/icons-material/Home";
-import "./header.css"
+import "./header.css";
+import { useDispatch } from "react-redux";
+import { increment } from "../redux/counterSlice";
+
+
 const drawerWidth = 280;
 
-const Drawerr = ({ setmyMode,noneOrblock,permanentOrtemp,setnoneOrblock }) => {
+const Drawerr = () => {
   const navigate = useNavigate();
 
   const theme = useTheme();
 
   const currentLocation = useLocation();
+  const dispatch = useDispatch()
+
   return (
     <Box>
       <Drawer
         className="drawer"
         sx={{
-          display: { xs: noneOrblock , sm:"block"},
 
           width: drawerWidth,
           flexShrink: 0,
@@ -42,12 +47,12 @@ const Drawerr = ({ setmyMode,noneOrblock,permanentOrtemp,setnoneOrblock }) => {
             boxSizing: "border-box",
           },
         }}
-        variant= "permanent"
+        variant="permanent"
         anchor="left"
         open={true}
         onClose={() => {
-          setnoneOrblock("none")
-          permanentOrtemp("permanent")
+
+
         }}
       >
         <Divider />
@@ -60,115 +65,111 @@ const Drawerr = ({ setmyMode,noneOrblock,permanentOrtemp,setnoneOrblock }) => {
             <IconButton
               sx={{ color: "#2196f3", top: "0", positin: "fixed" }}
               onClick={() => {
-                localStorage.setItem(
-                  "currentMode",
-                  theme.palette.mode === "light" ? "dark" : "light"
-                );
-                setmyMode(theme.palette.mode === "light" ? "dark" : "light");
+
+                dispatch(increment())       
+                
+              
+
+
               }}
             >
-              {theme.palette.mode === "dark" ? (
-                <Brightness7Icon sx={{ color: "orange" }} />
-              ) : (
-                <Brightness4Icon />
-              )}
-            </IconButton>
-          </ListItem>
-          <Divider />
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon sx={{ color: "orange" }} />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
+        </ListItem>
+        <Divider />
 
-          <ListItem
-            disablePadding
-            sx={{
-              bgcolor:
-                currentLocation.pathname === "/"
-                  ? theme.palette.primary.main
-                  : null,
-            }}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <Home />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </ListItem>
+        <ListItem
+          disablePadding
+          sx={{
+            bgcolor:
+              currentLocation.pathname === "/"
+                ? theme.palette.primary.main
+                : null,
+          }}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <Home />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItemButton>
+        </ListItem>
 
-          <ListItem
-            disablePadding
-            sx={{
-              bgcolor:
-                currentLocation.pathname === "/create"
-                  ? theme.palette.primary.main
-                  : null,
-            }}
-            onClick={() => {
-              navigate("/create");
-            }}
+        <ListItem
+          disablePadding
+          sx={{
+            bgcolor:
+              currentLocation.pathname === "/create"
+                ? theme.palette.primary.main
+                : null,
+          }}
+          onClick={() => {
+            navigate("/create");
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <ModeEdit />
+            </ListItemIcon>
+            <ListItemText primary="Create" />
+          </ListItemButton>
+        </ListItem>
 
+        <ListItem
+          disablePadding
+          onClick={() => {
+            navigate("/mydata");
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <FolderSpecialIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary="My Data"
+              sx={{
+                bgcolor:
+                  currentLocation.pathname === "/mydata" ? "red" : null,
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
 
+        <ListItem disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Person2 />
+            </ListItemIcon>
+            <ListItemText primary="My Portfolio" />
+          </ListItemButton>
+        </ListItem>
 
-
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <ModeEdit />
-              </ListItemIcon>
-              <ListItemText primary="Create" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding     onClick={()=>{
-
-navigate("/mydata")
-
-          }}      >
-            <ListItemButton>
-              <ListItemIcon>
-                <FolderSpecialIcon />
-              </ListItemIcon>
-              <ListItemText primary="My Data" sx={{
-              bgcolor: currentLocation.pathname === "/mydata" ? "red" : null,
-            }} />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <Person2 />
-              </ListItemIcon>
-              <ListItemText primary="My Portfolio" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem
-            sx={{
-              bgcolor: currentLocation.pathname === "/form" ? "red" : null,
-            }}
-            disablePadding
-            onClick={() => {
-              navigate("/form");
-            }}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <Email />
-              </ListItemIcon>
-              <ListItemText primary="Contact Me" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </Drawer>
-
-
-
-
-
-      
-    </Box>
+        <ListItem
+          sx={{
+            bgcolor: currentLocation.pathname === "/form" ? "red" : null,
+          }}
+          disablePadding
+          onClick={() => {
+            navigate("/form");
+          }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              <Email />
+            </ListItemIcon>
+            <ListItemText primary="Contact Me" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Drawer>
+    </Box >
   );
 };
 

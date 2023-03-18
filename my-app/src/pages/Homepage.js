@@ -10,11 +10,7 @@ import { useState } from "react";
 import Drawerr from "../components/DrawerConstant";
 // import Typed from "react-typed";
 import { Container } from "@mui/material";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import Appbarr from "../components/Appbar";
-import { grey, red } from "@mui/material/colors";
-import Create from "../create/create";
 
 const drawerWidth = 280;
 
@@ -27,58 +23,18 @@ const Homepage = () => {
   const [showForm, setshowForm] = useState("");
   const [showSendEmail, setshowSendEmail] = useState(false);
   const [resetEmail, setresetEmail] = useState("");
-  const [mode, setmyMode] = useState(
-    localStorage.getItem("currentMode") === null
-      ? "dark"
-      : localStorage.getItem("currentMode") === "light?"
-        ? "light"
-        : "dark"
-  );
-  const darkTheme = createTheme({
-    palette: {
-      // @ts-ignore
-      mode,
-      ...(mode === "light"
-        ? {
-          // palette values for light mode
-          primary: {
-            main: red[700],
-          },
-        }
-        : {
-          // palette values for dark mode
-
-          primary: {
-            main: grey[900],
-          },
-        }),
-    },
-  });
-  const [noneOrblock, setnoneOrblock] = useState("none");
-  const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
 
-      {false && <Create      mode={mode}  />}
-      <Container className="the-big">
-        <Appbarr
-          drawerWidth={drawerWidth}
-          setnoneOrblock={setnoneOrblock}
-          setpermanentOrtemp={setpermanentOrtemp}
-        />
+    < Container className="the-big" >
+      <Appbarr drawerWidth={drawerWidth} setnoneOrblock={undefined} setpermanentOrtemp={undefined} />
 
-        <Drawerr
-          setmyMode={setmyMode}
-          noneOrblock={noneOrblock}
-          setnoneOrblock={setnoneOrblock}
-          permanentOrtemp={permanentOrtemp}
-          mode={mode}
-        />
+      <Drawerr
 
-        <form className="homeform">
-          {/* <Typed
+      />
+
+      <form className="homeform">
+        {/* <Typed
             // @ts-ignore
             Typed
             strings={[
@@ -95,133 +51,132 @@ const Homepage = () => {
             <input className="typed" type="text" />
           </Typed> */}
 
-          <p style={{ fontSize: "20px", fontWeight: "300" }}>
-            Welcome to our platform <span> &#10084; </span>
-          </p>
+        <p style={{ fontSize: "20px", fontWeight: "300" }}>
+          Welcome to our platform <span> &#10084; </span>
+        </p>
 
-          <input
-            onChange={(eo) => {
-              setemail(eo.target.value);
-            }}
-            type="email"
-            required
-            placeholder="Email"
-          />
+        <input
+          onChange={(eo) => {
+            setemail(eo.target.value);
+          }}
+          type="email"
+          required
+          placeholder="Email"
+        />
 
-          <input
-            onChange={(eo) => {
-              setpassword(eo.target.value);
-            }}
-            type="password"
-            required
-            placeholder="Password"
-          />
+        <input
+          onChange={(eo) => {
+            setpassword(eo.target.value);
+          }}
+          type="password"
+          required
+          placeholder="Password"
+        />
 
-          <button
-            onClick={(eo) => {
-              eo.preventDefault();
+        <button
+          onClick={(eo) => {
+            eo.preventDefault();
 
-              signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                  // Signed in
+            signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in
 
-                  window.location.href =
-                    "https://courageous-froyo-50292c.netlify.app/";
+                window.location.href =
+                  "https://courageous-froyo-50292c.netlify.app/";
 
-                  console.log("done");
-                  // const user = userCredential.user;
-                  // ...
-                })
-                .catch((error) => {
-                  const errorCode = error.code;
-                  // const errorMessage = error.message;
+                console.log("done");
+                // const user = userCredential.user;
+                // ...
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                // const errorMessage = error.message;
 
-                  setError(true);
-                  setfirebasrError(errorCode);
+                setError(true);
+                setfirebasrError(errorCode);
 
-                  if (errorCode === "auth/invalid-email") {
-                    setfirebasrError("Invalid-Email");
-                  } else if (errorCode === "auth/wrong-password") {
-                    setfirebasrError("Invalid-password");
-                  } else if (errorCode === "auth/user-not-found") {
-                    setfirebasrError("user not found");
-                  } else if (errorCode === "auth/internal-error") {
-                    setfirebasrError("password needed");
-                  }
-                });
-            }}
-          >
-            Sign in{" "}
-          </button>
-          <br />
+                if (errorCode === "auth/invalid-email") {
+                  setfirebasrError("Invalid-Email");
+                } else if (errorCode === "auth/wrong-password") {
+                  setfirebasrError("Invalid-password");
+                } else if (errorCode === "auth/user-not-found") {
+                  setfirebasrError("user not found");
+                } else if (errorCode === "auth/internal-error") {
+                  setfirebasrError("password needed");
+                }
+              });
+          }}
+        >
+          Sign in{" "}
+        </button>
+        <br />
 
-          <p>
-            {" "}
-            Don't have an account<Link to="/sign-up"> Sign-up </Link>{" "}
-          </p>
+        <p>
+          {" "}
+          Don't have an account<Link to="/sign-up"> Sign-up </Link>{" "}
+        </p>
 
-          <p
-            onClick={() => {
-              setshowForm("show-popup-form");
-            }}
-            className="forgot-pass"
-          >
-            {" "}
-            Forgot password{" "}
-          </p>
+        <p
+          onClick={() => {
+            setshowForm("show-popup-form");
+          }}
+          className="forgot-pass"
+        >
+          {" "}
+          Forgot password{" "}
+        </p>
 
-          {hasErorr && <h3 style={{ color: "red" }}> {firebaseError} </h3>}
+        {hasErorr && <h3 style={{ color: "red" }}> {firebaseError} </h3>}
 
-          {/* "pop up form  */}
+        {/* "pop up form  */}
 
-          <div>
-            <form className={`popup-form ${showForm}`}>
-              <span
-                onClick={() => {
-                  setshowForm("hide-popup-form");
-                }}
-              >
-                X
-              </span>
-              <input
-                onChange={(eo) => {
-                  setresetEmail(eo.target.value);
-                }}
-                type="email"
-                required
-                placeholder="write your email"
-              ></input>
-              <button
-                onClick={(eo) => {
-                  eo.preventDefault();
-                  sendPasswordResetEmail(auth, resetEmail)
-                    .then(() => {
-                      setshowSendEmail(true);
-                      console.log(resetEmail);
+        <div>
+          <form className={`popup-form ${showForm}`}>
+            <span
+              onClick={() => {
+                setshowForm("hide-popup-form");
+              }}
+            >
+              X
+            </span>
+            <input
+              onChange={(eo) => {
+                setresetEmail(eo.target.value);
+              }}
+              type="email"
+              required
+              placeholder="write your email"
+            ></input>
+            <button
+              onClick={(eo) => {
+                eo.preventDefault();
+                sendPasswordResetEmail(auth, resetEmail)
+                  .then(() => {
+                    setshowSendEmail(true);
+                    console.log(resetEmail);
 
-                      // ..
-                    })
-                    .catch((error) => {
-                      // const errorCode = error.code;
-                      // const errorMessage = error.message;
-                      // ..
-                    });
-                }}
-              >
-                {" "}
-                Reset password
-              </button>
-              <br /> <br />
-              {showSendEmail && (
-                <p>please check your email to reset your password</p>
-              )}
-            </form>
-          </div>
+                    // ..
+                  })
+                  .catch((error) => {
+                    // const errorCode = error.code;
+                    // const errorMessage = error.message;
+                    // ..
+                  });
+              }}
+            >
+              {" "}
+              Reset password
+            </button>
+            <br /> <br />
+            {showSendEmail && (
+              <p>please check your email to reset your password</p>
+            )}
+          </form>
+        </div>
 
-          {/* <Footer /> */}
-        </form>
-      </Container>
-    </ThemeProvider>
+        {/* <Footer /> */}
+      </form>
+    </Container >
   );
 };
 

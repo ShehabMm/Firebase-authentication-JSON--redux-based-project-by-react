@@ -15,9 +15,13 @@ import Emailjs from "./Emailjs/Emailjs";
 import Contactform from "./create/form";
 import MyData from "./components/myData";
 import { store } from "./redux/store";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const router = createBrowserRouter([
+
+
   {
     path: "/",
     element: <Homepage />,
@@ -80,14 +84,36 @@ const router = createBrowserRouter([
     path: "/mydata",
     element: <MyData />,
     // errorElement: <Error404 />,
+
   },
-]);
+
+]
+
+);
+
+
+
+
+const darkTheme = createTheme({
+
+  palette: {
+    mode: myTheme,
+  },
+
+}
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
+
   <React.StrictMode>
+
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
