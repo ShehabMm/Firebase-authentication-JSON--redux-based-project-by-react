@@ -5,6 +5,12 @@ import Drawerr from "./DrawerConstant";
 
 const MyData = () => {
   const [ladata, setmydata] = useState([]);
+  const [noneOrblock, setnoneOrblock] = useState("none");
+  const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
+
+
+
+
 
   useEffect(() => {
     fetch("http://localhost:3100/mydata")
@@ -80,7 +86,7 @@ const MyData = () => {
           Total Price = $ {total}
         </Typography>
       </Paper>
-      <Drawerr />
+      <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
     </div>
   );
 };

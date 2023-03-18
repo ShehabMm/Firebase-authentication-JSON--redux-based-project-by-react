@@ -6,10 +6,14 @@ const Create = () => {
   const [title, settitle] = useState("");
   const [price, setprice] = useState(0);
 
+
+  const [noneOrblock, setnoneOrblock] = useState("none");
+  const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
+
   return (
     <>
       <div>
-        <Drawerr                />
+        <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}                />
       </div>
 
       <Container
