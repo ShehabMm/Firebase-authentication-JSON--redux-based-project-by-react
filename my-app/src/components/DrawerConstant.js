@@ -20,7 +20,7 @@ import FolderSpecialIcon from "@mui/icons-material/FolderSpecial";
 import { useLocation, useNavigate } from "react-router-dom";
 import Home from "@mui/icons-material/Home";
 import "./header.css";
-import {  useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { increment } from "../redux/counterSlice";
 
 
@@ -67,108 +67,108 @@ const Drawerr = () => {
               sx={{ color: "#2196f3", top: "0", positin: "fixed" }}
               onClick={() => {
 
-                dispatch(increment(myTheme==="dark"?"light":"dark"))
-              
+                dispatch(increment(myTheme === "dark" ? "light" : "dark"))
 
+                localStorage.setItem("currentMode", theme.palette.mode === "dark"? "light":"dark")
 
               }}
             >
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon sx={{ color: "orange" }} />
-            ) : (
-              <Brightness4Icon />
-            )}
-          </IconButton>
-        </ListItem>
-        <Divider />
+              {theme.palette.mode === "dark" ? (
+                <Brightness7Icon sx={{ color: "orange" }} />
+              ) : (
+                <Brightness4Icon />
+              )}
+            </IconButton>
+          </ListItem>
+          <Divider />
 
-        <ListItem
-          disablePadding
-          sx={{
-            bgcolor:
-              currentLocation.pathname === "/"
-                ? theme.palette.primary.main
-                : null,
-          }}
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <Home />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItemButton>
-        </ListItem>
+          <ListItem
+            disablePadding
+            sx={{
+              bgcolor:
+                currentLocation.pathname === "/"
+                  ? theme.palette.primary.main
+                  : null,
+            }}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <Home />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem
-          disablePadding
-          sx={{
-            bgcolor:
-              currentLocation.pathname === "/create"
-                ? theme.palette.primary.main
-                : null,
-          }}
-          onClick={() => {
-            navigate("/create");
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <ModeEdit />
-            </ListItemIcon>
-            <ListItemText primary="Create" />
-          </ListItemButton>
-        </ListItem>
+          <ListItem
+            disablePadding
+            sx={{
+              bgcolor:
+                currentLocation.pathname === "/create"
+                  ? theme.palette.primary.main
+                  : null,
+            }}
+            onClick={() => {
+              navigate("/create");
+            }}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <ModeEdit />
+              </ListItemIcon>
+              <ListItemText primary="Create" />
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem
-          disablePadding
-          onClick={() => {
-            navigate("/mydata");
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <FolderSpecialIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary="My Data"
-              sx={{
-                bgcolor:
-                  currentLocation.pathname === "/mydata" ? "red" : null,
-              }}
-            />
-          </ListItemButton>
-        </ListItem>
+          <ListItem
+            disablePadding
+            onClick={() => {
+              navigate("/mydata");
+            }}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <FolderSpecialIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="My Data"
+                sx={{
+                  bgcolor:
+                    currentLocation.pathname === "/mydata" ? "red" : null,
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <Person2 />
-            </ListItemIcon>
-            <ListItemText primary="My Portfolio" />
-          </ListItemButton>
-        </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <Person2 />
+              </ListItemIcon>
+              <ListItemText primary="My Portfolio" />
+            </ListItemButton>
+          </ListItem>
 
-        <ListItem
-          sx={{
-            bgcolor: currentLocation.pathname === "/form" ? "red" : null,
-          }}
-          disablePadding
-          onClick={() => {
-            navigate("/form");
-          }}
-        >
-          <ListItemButton>
-            <ListItemIcon>
-              <Email />
-            </ListItemIcon>
-            <ListItemText primary="Contact Me" />
-          </ListItemButton>
-        </ListItem>
-      </List>
-    </Drawer>
+          <ListItem
+            sx={{
+              bgcolor: currentLocation.pathname === "/form" ? "red" : null,
+            }}
+            disablePadding
+            onClick={() => {
+              navigate("/form");
+            }}
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <Email />
+              </ListItemIcon>
+              <ListItemText primary="Contact Me" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Drawer>
     </Box >
   );
 };

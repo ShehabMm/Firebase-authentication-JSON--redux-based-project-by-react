@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  myTheme : "dark",
+  myTheme : localStorage.getItem("currentMode") === null?"dark":localStorage.getItem("currentMode") === "light"?"light":"dark"
 }
 
 export const counterSlice = createSlice({
