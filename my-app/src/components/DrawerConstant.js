@@ -24,7 +24,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../redux/counterSlice";
 
 const drawerWidth = 280;
-const Drawerr = () => {
+const Drawerr = ({
+  noneOrblock,
+  permanentOrtemp,
+  setnoneOrblock,
+  setpermanentOrtemp,
+}) => {
   const navigate = useNavigate();
   const theme = useTheme();
   const currentLocation = useLocation();
@@ -43,11 +48,15 @@ const Drawerr = () => {
             width: drawerWidth,
             boxSizing: "border-box",
           },
+          display: { xs: noneOrblock, sm: "block" },
         }}
-        variant="permanent"
+        variant={permanentOrtemp}
         anchor="left"
         open={true}
-        onClose={() => { }}
+        onClose={() => {
+          setpermanentOrtemp("permanent");
+          setnoneOrblock("none");
+        }}
       >
         <Divider />
 
@@ -81,8 +90,8 @@ const Drawerr = () => {
             sx={{
               bgcolor:
                 currentLocation.pathname === "/"
-              ? theme.palette.error.light : null
-
+                  ? theme.palette.error.light
+                  : null,
             }}
             onClick={() => {
               navigate("/");
@@ -132,18 +141,17 @@ const Drawerr = () => {
               <ListItemIcon>
                 <FolderSpecialIcon />
               </ListItemIcon>
-              <ListItemText
-                primary="My Data"
-              
-              />
+              <ListItemText primary="My Data" />
             </ListItemButton>
           </ListItem>
 
-          <ListItem disablePadding 
-          onClick={() => {
-            navigate("https:courageous-froyo-50292c.netlify.app")
-          }}
-          
+          <ListItem
+            disablePadding
+            onClick={() => {
+              window.location.replace(
+                "https:courageous-froyo-50292c.netlify.app"
+              );
+            }}
           >
             <ListItemButton>
               <ListItemIcon>

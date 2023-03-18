@@ -9,8 +9,7 @@ const Create = () => {
   return (
     <>
       <div>
-        <Drawerr
-                />
+        <Drawerr                />
       </div>
 
       <Container

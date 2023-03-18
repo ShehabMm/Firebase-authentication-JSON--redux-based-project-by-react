@@ -49,18 +49,16 @@ const Appbarr = ({ drawerWidth, setnoneOrblock, setpermanentOrtemp }) => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
             <IconButton
               onClickCapture={() => {
                 setnoneOrblock("block");
                 setpermanentOrtemp("temporary");
               }}
               size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              // aria-label="account of current user"
+              // aria-controls="menu-appbar"
+              // aria-haspopup="true"
               color="inherit"
             >
               <MenuIcon />

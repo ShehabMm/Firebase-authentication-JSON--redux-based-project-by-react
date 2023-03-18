@@ -23,16 +23,19 @@ const Homepage = () => {
   const [showForm, setshowForm] = useState("");
   const [showSendEmail, setshowSendEmail] = useState(false);
   const [resetEmail, setresetEmail] = useState("");
+  const [noneOrblock, setnoneOrblock] = useState("none");
+  const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
+
 
   return (
     <Container className="the-big">
       <Appbarr
         drawerWidth={drawerWidth}
-        setnoneOrblock={undefined}
-        setpermanentOrtemp={undefined}
+        setnoneOrblock={setnoneOrblock}
+        setpermanentOrtemp={setpermanentOrtemp}
       />
 
-      <Drawerr />
+      <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
 
       <form className="homeform">
         {/* <Typed
