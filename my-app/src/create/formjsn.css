@@ -116,6 +116,21 @@ font-size: 0.5rem;
 
 }
 
+@media (max-width:220px){
+
+  .modern-formjss label{
+
+font-size: 0.2rem;
+
+
+  }
+
+
+
+}
+
+
+
 .modern-formjss{
 
 font-size: 0.3rem;

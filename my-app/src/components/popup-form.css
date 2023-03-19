@@ -1,17 +1,78 @@
 .popup-form {
   height: 300px;
-  padding: 100px 10%;
-
-  background-color: rgb(10, 125, 232);
+  max-width: 400px;
   display: flex;
+  position: fixed;
   z-index: 5;
   border-radius: 15px;
-  top: 100vh;
+  top: -20px !important;
+  left: 0%;
   scale: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+
 }
+
+
+   @media(max-width:1260px){
+
+
+  .popup-form {
+    height: 300px;
+    max-width: 400px;
+    display: flex;
+    position: fixed;
+    z-index: 5;
+    border-radius: 15px;
+    top: -20px !important;
+    left: 0%;
+    scale: 0;
+    margin-left: auto;
+    margin-right: auto;
+  
+  
+  }
+  
+
+
+
+  .popup-form span {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    left: 5px;
+
+  }
+
+
+
+
+}
+
 
 .popup-form button {
   background-color: rgb(17, 18, 16);
+  width: 200px;
+  padding: 20px 30px;
+  height: 60px;
+  top: 60%;
+  position: absolute;
+
+}
+
+
+.popup-form input {
+  position: absolute;
+  background-color: rgb(247, 191, 5);
+  width: 200px;
+  padding: 20px 30px;
+  height: 60px;
+  top: 30%;
+
 }
 
 .show-popup-form {
@@ -32,8 +93,8 @@
   font-weight: 500;
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 50px;
+  right:-250px;
 }
 
 .popup-form span:hover {
@@ -43,3 +104,37 @@
 .popup-form span:active {
   scale: 0.9;
 }
+
+
+@media(max-width:260px){
+
+
+  .popup-form input{
+  width:50px;
+padding:0    }
+
+  
+    .popup-form input::placeholder{
+      width:50px;
+    font-size: x-small;  
+    padding:0;
+        }
+  
+    .popup-form button{
+      width:50px;
+      font-size: x-small;  
+      padding:0;
+  
+      
+        }
+
+        .popup-form span{
+
+left:-200px;
+
+
+        }
+
+  
+  }
+  

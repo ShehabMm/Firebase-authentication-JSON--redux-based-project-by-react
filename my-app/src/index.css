@@ -43,6 +43,8 @@ code {
   border: 1px solid rgba(255, 255, 255, 0.16);
   padding-top: 150px;
 
+
+
 }
 
 @media (max-width: 950px) {
@@ -80,16 +82,84 @@ code {
 }
 
 .signup-form {
-  background-color: black;
+  background-color: transparent;
   display: flex;
+  position:fixed;
   flex-direction: column;
   position: fixed;
   justify-content: center;
   align-items: center;
-  top: 30%;
   bottom: 50%;
-  right: 45%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+margin-left: 40%;
+
 }
+
+
+@media(max-width:600px){
+
+
+  .signup-form {
+  
+  margin-left: 30%;
+  
+  }
+  
+  
+
+
+
+}
+
+
+@media(max-width:400px){
+
+
+  .signup-form {
+  
+  margin-left: 20%;
+  
+  }
+  
+  
+
+
+
+}
+
+
+@media(max-width:280px){
+
+
+  .signup-form {
+  
+  margin-left: 10%;
+  min-width: 50px;
+font-size: 0.1em;
+width: 80%;
+
+}
+  
+.signup-form input{
+
+
+  width: 50px;
+}
+
+
+.signup-form button{
+
+
+  width: 50px;
+}
+
+
+
+
+}
+
 
 form input {
   margin-bottom: 18px;
@@ -110,6 +180,7 @@ form button {
   font-size: 16px;
   color: white;
   border: none;
+
 }
 
 form button:hover {
@@ -209,4 +280,21 @@ select,
 textarea {
   color: #11fe00;
   font-size: 20px;
+}
+
+
+@media(max-width:245px){
+
+
+  .the-big form input{
+
+width: 100px;
+
+  }
+  .the-big form button{
+
+    width: 100px;
+    
+      }
+
 }
