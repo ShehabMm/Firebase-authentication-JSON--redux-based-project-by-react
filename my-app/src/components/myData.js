@@ -72,7 +72,7 @@ const MyData = () => {
           position: "relative",
           height: "70px",
           alignItems: "center",
-          background: "rgba(4, 216, 65, 0.41)",
+          background: "rgba(280, 50, 65, 0.41)",
           boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
           backdropFilter: "blur( 4px )",
           borderRadius: "10px",

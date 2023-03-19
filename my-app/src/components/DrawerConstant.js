@@ -36,6 +36,11 @@ const Drawerr = ({
   const dispatch = useDispatch();
   // @ts-ignore
   const { myTheme } = useSelector((state) => state.counter);
+  const myList = [
+    { text: "Home", icon: <Home />, path: "/", id: 1 },
+    { text: "Create", icon: <ModeEdit />, path: "/create", id: 2 },
+    { text: "My data", icon: <FolderSpecialIcon />, path: "/mydata", id: 3 },
+  ];
 
   return (
     <Box>
@@ -60,7 +65,7 @@ const Drawerr = ({
       >
         <Divider />
 
-        <List>
+        <List >
           <ListItem
             disablePadding
             sx={{ display: "flex", justifyContent: "center", mb: "19px" }}
@@ -85,67 +90,29 @@ const Drawerr = ({
           </ListItem>
           <Divider />
 
-          <ListItem
-            disablePadding
-            sx={{
-              bgcolor:
-                currentLocation.pathname === "/"
-                  ? theme.palette.error.light
-                  : null,
-            }}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <Home />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </ListItem>
+          {myList.map((item) => {
+            return (
+              <ListItem key={item.text}
+                disablePadding
+                sx={{
+                  bgcolor:
+                    currentLocation.pathname === item.path
+                      ? theme.palette.error.light
+                      : null,
+                }}
+                onClick={() => {
+                  navigate(item.path);
+                }}
+              >
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
 
-          <ListItem
-            disablePadding
-            sx={{
-              bgcolor:
-                currentLocation.pathname === "/create"
-                  ? theme.palette.error.light
-                  : null,
-            }}
-            onClick={() => {
-              navigate("/create");
-            }}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <ModeEdit />
-              </ListItemIcon>
-              <ListItemText primary="Create" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem
-            sx={{
-              bgcolor:
-                currentLocation.pathname === "/mydata"
-                  ? theme.palette.error.light
-                  : null,
-            }}
-            disablePadding
-            onClick={() => {
-              navigate("/mydata");
-            }}
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                <FolderSpecialIcon />
-              </ListItemIcon>
-              <ListItemText primary="My Data" />
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem
+          <ListItem 
             disablePadding
             onClick={() => {
               window.location.replace(

@@ -1,4 +1,4 @@
-import { Button, Container, InputAdornment, TextField } from "@mui/material";
+import { Box, Button, Container, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 import EmojiPeople from "@mui/icons-material/EmojiPeople";
 import Drawerr from "../components/DrawerConstant";
@@ -13,21 +13,21 @@ const Create = () => {
   const [permanentOrtemp, setpermanentOrtemp] = useState("permanent");
 
   return (
-    <>
+    <div>
       <div>
-        <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}                />
-      <Appbarr drawerWidth={280} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp}/>
-    
+        <Drawerr noneOrblock={noneOrblock} permanentOrtemp={permanentOrtemp} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
+        <Appbarr drawerWidth={280} setnoneOrblock={setnoneOrblock} setpermanentOrtemp={setpermanentOrtemp} />
+
       </div>
 
-      <Container
-      className="create-app"
-        component="main"
-        sx={{
-          top:"20%",
-        }}
+      <Box
+        className="create-app"
+        component="form"
+      
       >
         <TextField
+                  sx={{ mt: "50px", width:"300px" }}
+
           autoComplete="off"
           onChange={(eo) => {
             settitle(eo.target.value);
@@ -50,7 +50,7 @@ const Create = () => {
           }}
           label="Price"
           variant="filled"
-          sx={{ mt: "80px" }}
+          sx={{ mt: "50px", width:"300px" }}
           InputProps={{
             startAdornment: <InputAdornment position="start">$</InputAdornment>,
           }}
@@ -74,8 +74,8 @@ const Create = () => {
         </Button>
         <br />
 
-      </Container>
-    </>
+      </Box>
+    </div>
   );
 };
 
